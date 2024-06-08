@@ -1,0 +1,20 @@
+/* Proposition.module.css */
+
+.container {
+  width: 90%;
+  /* Adjust this value to your liking */
+  margin: 0 auto;
+  /* This centers the container */
+}
+
+.description {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.input {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
