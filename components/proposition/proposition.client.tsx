@@ -1,6 +1,5 @@
-'use client';
+import { Box, TextField, Typography } from '@mui/material';
 import { ChangeEvent, FC } from 'react';
-import styles from './proposition.module.css';
 
 interface PropositionProps {
   description: string;
@@ -10,14 +9,30 @@ interface PropositionProps {
 
 const Proposition: FC<PropositionProps> = ({ description, inputValue, onChange }) => {
   return (
-    <div className={styles.container}>
-      <p className={styles.description}>
+    <Box 
+      sx={
+        { 
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: 2,
+          minWidth: '30rem', 
+        }
+      }
+    >
+      <Typography variant="body1">
         {description}
-      </p>
-      <input type="text" value={inputValue} 
-      onChange={onChange} 
-      className={styles.input} />
-    </div>
+      </Typography>
+      <TextField
+        variant="outlined"
+        value={inputValue}
+        onChange={onChange}
+        sx={{ backgroundColor: 'white'}}
+        inputProps={{ style: { textAlign: 'center' } }}
+        multiline
+        minRows={1}
+        maxRows={5}
+      />
+    </Box>
   );
 };
 

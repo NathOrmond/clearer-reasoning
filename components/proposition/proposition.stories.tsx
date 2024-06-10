@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import Proposition from '../../components/proposition/proposition.client';
+import Proposition from './proposition.client';
 
 const meta = {
   title: 'Components/Proposition',
