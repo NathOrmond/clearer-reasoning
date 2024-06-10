@@ -1,14 +1,17 @@
 import React from 'react';
 import styles from './actionButton.module.css';
 
-interface ActionButtonProps {
+export interface ActionButtonProps {
   text: string;
-  onClick: () => void;
+  clickHandler: () => void;
 }
 
-const ActionButton: React.FC<ActionButtonProps> = ({ text, onClick }) => {
+const ActionButton: React.FC<ActionButtonProps> = ({ text, clickHandler }) => {
   return (
-    <button className={styles.button}>
+    <button 
+      className={styles.button}
+      onClick={clickHandler}
+    >
       {text}
     </button>
   );

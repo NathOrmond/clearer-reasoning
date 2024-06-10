@@ -1,6 +1,6 @@
 'use client';
 import { ChangeEvent, FC } from 'react';
-import styles from './Proposition.module.css';
+import styles from './proposition.module.css';
 
 interface PropositionProps {
   description: string;
