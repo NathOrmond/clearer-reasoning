@@ -1,7 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import React, { ChangeEvent, useState } from 'react';
-import ActionButton from '../button/actionButton';
+import ButtonGroupComponent from '../buttongroup/buttonGroup';
 import Proposition from '../proposition/proposition.client';
 
 interface PropositionData {
@@ -32,27 +32,16 @@ const DynamicList: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
 
-      <Box sx={{ mt: 2, display: 'flex', gap: 2 }}>
-        <ActionButton 
-          text="Add Premise" 
-          clickHandler={addProposition} 
-          sx={{ ml: 8 }}  
-        />
-        {list.length > 1 &&
-          <ActionButton
-            text="Remove Premise"
-            clickHandler={removeProposition}
-            sx={{ backgroundColor: 'red', color: 'white' }}
-          />}
-        <ActionButton
-          text="Analyse"
-          clickHandler={() => { }}
-          sx={{ backgroundColor: 'green', color: 'white' }}
-        />
-      </Box>
-
+      <ButtonGroupComponent 
+        buttons={[
+          { text: 'Add Premise', clickHandler: addProposition, sx: { ml: 8 } },
+          { text: 'Remove Premise', clickHandler: removeProposition, sx: { backgroundColor: 'red', color: 'white' } },
+          { text: 'Analyse', clickHandler: () => { }, sx: { backgroundColor: 'green', color: 'white' } }
+        ]} 
+      />
+      
       {list.map((item, index) => (
         <Box key={index} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <Typography variant="body1" sx={{ width: '50px' }}>
@@ -76,7 +65,7 @@ const DynamicList: React.FC = () => {
           onChange={handleConclusionChange}
         />
       </Box>
-    </div>
+    </>
   );
 };
 
