@@ -76,7 +76,7 @@ const BayesianUpdater: React.FC = (): JSX.Element => {
         <br />
         Expected P(E) = {expected.toFixed(3)} from total probability theorem
         <br />
-        {expected !== evidence.marginal &&
+        {expected == evidence.marginal &&
           evidence.marginal !== 0 &&
           `Warning: Current value ${evidence.marginal} differs from expected ${expected.toFixed(3)}`}
       </Typography>
@@ -148,7 +148,7 @@ const BayesianUpdater: React.FC = (): JSX.Element => {
       }
 
       // 3. Marginal probability consistency
-      if (e.marginal <= 0 || e.marginal > 1) {
+      if (e.marginal <= 0 || e.marginal >= 1) {
         validationMessages.push(
           `Evidence "${e.name}": Marginal probability must be between 0 and 1`
         );
@@ -462,9 +462,9 @@ const BayesianUpdater: React.FC = (): JSX.Element => {
                   label="Marginal Probability"
                   value={e.marginal}
                   decimalScale={4}
-                  allowNegative={true} // Allow negative numbers
+                  allowNegative={false} 
                   allowLeadingZeros
-                  onFocus={(e) => e.target.select()} // Select all text on focus
+                  onFocus={(e) => e.target.select()} 
                   onValueChange={(values) => {
                     updateEvidence(idx, "marginal", values.floatValue || 0);
                   }}
